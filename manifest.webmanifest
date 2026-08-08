@@ -1,26 +1,22 @@
 {
   "name": "Air Bank Demo",
   "short_name": "Air Bank Demo",
-  "description": "Neoficiální demonstrační prototyp mobilního rozhraní.",
-  "lang": "cs",
   "start_url": "./",
   "scope": "./",
   "display": "standalone",
   "orientation": "portrait",
-  "background_color": "#202426",
-  "theme_color": "#202426",
+  "background_color": "#2c2c2e",
+  "theme_color": "#1e2223",
   "icons": [
     {
       "src": "./icon-192.png",
       "sizes": "192x192",
-      "type": "image/png",
-      "purpose": "any"
+      "type": "image/png"
     },
     {
       "src": "./icon-512.png",
       "sizes": "512x512",
-      "type": "image/png",
-      "purpose": "any"
+      "type": "image/png"
     },
     {
       "src": "./icon-maskable-512.png",
