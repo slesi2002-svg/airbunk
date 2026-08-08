@@ -1,3 +1,2 @@
-Air Bank Demo PWA
-Build: v7-mobile-fix
-Viewport: standalone 100vh safe-area fix
+airbank-demo-v8-payment
+Added interactive payment screen, More details/calendar states, working transition loader, login flicker prevention, and flattened overview background for reduced banding.

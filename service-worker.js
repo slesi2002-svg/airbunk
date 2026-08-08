@@ -1,4 +1,4 @@
-const VERSION='airbank-demo-v7-mobile-fix';
+const VERSION='airbank-demo-v8-payment';
 self.addEventListener('install', event => { self.skipWaiting(); });
 self.addEventListener('activate', event => event.waitUntil((async()=>{
   for (const key of await caches.keys()) await caches.delete(key);
