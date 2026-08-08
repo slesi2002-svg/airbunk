@@ -1,0 +1,2 @@
+v6-stable-layout
+Fixed 430x930.909 design canvas; width-only scale; fixed viewport splash; fixed bottom nav.
