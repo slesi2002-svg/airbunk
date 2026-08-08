@@ -1,2 +1,3 @@
-v6-stable-layout
-Fixed 430x930.909 design canvas; width-only scale; fixed viewport splash; fixed bottom nav.
+Air Bank Demo PWA
+Build: v7-mobile-fix
+Viewport: standalone 100vh safe-area fix
