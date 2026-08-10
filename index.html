@@ -11,7 +11,7 @@
 <meta content="yes" name="apple-mobile-web-app-capable"/>
 <meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"/>
 <title>Air Bank Demo</title>
-<meta name="build" content="v10-photo-card-balance">
+<meta name="build" content="v11-high-balance-fix">
 <style>
 :root { --w:430px; --design-h:930.909091px; --app-h:930.909091px; --header-h:100px; --nav-bottom:24px; --nav-h:70px; }
 * { box-sizing:border-box; -webkit-tap-highlight-color:transparent; }
@@ -310,12 +310,41 @@ body.assets-ready #loginShot { opacity:1; }
 
 
 
-/* v9: balances are rendered as real text instead of baked raster text.
-   On iPhone this uses SF Pro through -apple-system, so the figures remain crisp at native DPR. */
-#overviewBalanceTop,
-
-
-
+/* v11: large overview balance remains crisp native text; the Běžný účet 1 card amount remains photographic. */
+#overviewBalanceTop {
+  position:absolute;
+  z-index:4;
+  pointer-events:none;
+  font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","SF Pro Text",Arial,sans-serif;
+  color:#f7f7f6;
+  -webkit-font-smoothing:antialiased;
+  text-rendering:geometricPrecision;
+  white-space:nowrap;
+  left:0;
+  right:0;
+  top:49.5px;
+  height:39px;
+  display:flex;
+  align-items:baseline;
+  justify-content:center;
+  gap:7px;
+  letter-spacing:-.035em;
+}
+#overviewBalanceTop .amount {
+  font-size:38px;
+  line-height:39px;
+  font-weight:600;
+}
+#overviewBalanceTop .currency {
+  font-size:18px;
+  line-height:22px;
+  font-weight:560;
+  letter-spacing:.01em;
+}
+#overviewBalanceTop.high .amount {
+  font-size:35px;
+  letter-spacing:-.045em;
+}
 #overviewBalanceCardImg {
   position:absolute;
   z-index:4;
@@ -394,7 +423,7 @@ body.assets-ready #loginShot { opacity:1; }
           <div class="payAccountName">Běžný účet 1</div>
           <div class="payAccountNo">3457133028/3030</div>
         </div>
-        <div class="payAccountAmount"><span>1 400 000,00</span><span class="payCzk">CZK</span><span class="payChevron"></span></div>
+        <div class="payAccountAmount"><span id="payAccountAmountValue">1 400 000,00</span><span class="payCzk">CZK</span><span class="payChevron"></span></div>
       </div>
 
       <div class="paySectionHead">
@@ -476,6 +505,7 @@ body.assets-ready #loginShot { opacity:1; }
   const mainNav=document.getElementById('mainNav');
   const mainScrollThumb=document.getElementById('mainScrollThumb');
   const pay=document.getElementById('pay');
+  const payAccountAmountValue=document.getElementById('payAccountAmountValue');
   const payScroll=document.getElementById('payScroll');
   const payScrollThumb=document.getElementById('payScrollThumb');
   const payMoreToggle=document.getElementById('payMoreToggle');
@@ -617,6 +647,7 @@ body.assets-ready #loginShot { opacity:1; }
     overviewBalanceTopAmount.textContent=value;
     overviewBalanceTop.classList.toggle('high',high);
     overviewBalanceCardImg.src=high ? CARD_BALANCE_HIGH : CARD_BALANCE_NORMAL;
+    payAccountAmountValue.textContent=value;
   }
 
   function tryLogin() {

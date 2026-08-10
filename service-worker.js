@@ -1,4 +1,4 @@
-const VERSION='airbank-demo-v10-photo-card-balance';
+const VERSION='airbank-demo-v11-high-balance-fix';
 self.addEventListener('install', event => { self.skipWaiting(); });
 self.addEventListener('activate', event => event.waitUntil((async()=>{
   for (const key of await caches.keys()) await caches.delete(key);
