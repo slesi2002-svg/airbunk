@@ -1,2 +1,5 @@
-airbank-demo-v8-payment
-Added interactive payment screen, More details/calendar states, working transition loader, login flicker prevention, and flattened overview background for reduced banding.
+airbank-demo-v10-photo-card-balance
+Běžný účet 1 card balance is composed from exact glyph pixels in the supplied reference screenshots.
+CZK is copied from the original 140,00 CZK reference as one intact raster group, preserving its baseline and size.
+9876 -> 1 400 000,00 CZK
+2369 -> 24 350 000,00 CZK
