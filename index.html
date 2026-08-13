@@ -11,7 +11,7 @@
 <meta content="yes" name="apple-mobile-web-app-capable"/>
 <meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"/>
 <title>Air Bank Demo</title>
-<meta name="build" content="v12-pay-me">
+<meta name="build" content="v13-pay-me-1to1-final">
 <style>
 :root { --w:430px; --design-h:930.909091px; --app-h:930.909091px; --header-h:100px; --nav-bottom:24px; --nav-h:70px; }
 * { box-sizing:border-box; -webkit-tap-highlight-color:transparent; }
@@ -138,7 +138,7 @@ body.assets-ready #loginShot { opacity:1; }
 }
 #payTitle {
   position:absolute; left:50%; top:14px; transform:translateX(-50%);
-  color:#fff; font-size:21px; line-height:28px; font-weight:650; letter-spacing:-.02em;
+  color:#fff; font-size:20px; line-height:27px; font-weight:650; letter-spacing:-.02em;
 }
 #payHeaderActions {
   position:absolute; right:17px; top:4px; width:118px; height:50px; border-radius:25px;
@@ -374,8 +374,8 @@ body.assets-ready #loginShot { opacity:1; }
 /* PAY ME SCREEN — recreated from the supplied iPhone reference.
    The QR panels below are exact crops of the supplied screenshots; no QR is invented. */
 #payMe { background:#212224; overflow:hidden; overscroll-behavior:none; }
-#payMe button,#payMe input { font:inherit; }
-#payMeHeader { position:absolute; z-index:8; left:0; right:0; top:42px; height:70px; background:#212224; }
+#payMe button,#payMe input,#payMe textarea { font-family:inherit; }
+#payMeHeader { position:absolute; z-index:8; left:0; right:0; top:48px; height:68px; background:#212224; }
 #payMeBack {
   position:absolute; left:17px; top:4px; width:50px; height:50px; border-radius:50%;
   border:1px solid rgba(84,87,91,.45); background:#1d1f21; padding:0; cursor:pointer;
@@ -388,70 +388,59 @@ body.assets-ready #loginShot { opacity:1; }
   position:absolute; left:50%; top:14px; transform:translateX(-50%); color:#fff;
   font-size:21px; line-height:28px; font-weight:650; letter-spacing:-.02em; white-space:nowrap;
 }
-#payMeBody { position:absolute; z-index:2; left:17px; right:17px; top:111px; bottom:0; }
+#payMeBody { position:absolute; z-index:2; left:17px; right:17px; top:115px; bottom:0; }
 .payMeCard { width:100%; border-radius:8px; background:#2d3035; color:#fff; }
 #payMePurpose {
-  position:absolute; left:0; top:0; height:87px; width:100%; border:0; outline:0; resize:none;
-  padding:16px 18px; color:#fff; caret-color:#96cf22; font-size:18px; line-height:24px; font-weight:400;
+  position:absolute; left:6px; right:5px; top:-4px; height:86px; width:auto; border:0; outline:0; resize:none;
+  padding:13px 13px 41px; color:#fff; caret-color:#96cf22; font-size:18px; line-height:24px; font-weight:400; appearance:none;
 }
 #payMePurpose::placeholder { color:#f5f5f6; opacity:1; }
 #payMeDestination {
-  position:absolute; left:0; top:95px; height:82px; display:grid; grid-template-columns:1fr auto;
-  align-items:center; padding:0 18px;
+  position:absolute; left:6px; right:5px; top:93px; width:auto; height:72px; display:grid; grid-template-columns:1fr auto;
+  align-items:center; padding:0 13px;
 }
 .payMeDestinationLabel { font-size:18px; line-height:28px; color:#fff; }
 .payMeDestinationRight { display:flex; align-items:center; gap:11px; }
-.payMeDestinationData { text-align:right; color:#c8c8cb; font-size:17px; line-height:26px; font-weight:400; }
+.payMeDestinationLabel,.payMeDestinationRight { transform:translateY(3px); }
+.payMeDestinationData { text-align:right; color:#c8c8cb; font-size:18px; line-height:26px; font-weight:400; }
 .payMeChevron {
   display:block; width:10px; height:10px; border-top:2px solid #96cf22; border-right:2px solid #96cf22;
   transform:rotate(45deg); flex:0 0 auto;
 }
 #payMeSplitRow {
-  position:absolute; left:0; top:187px; height:56px; display:flex; align-items:center; justify-content:space-between;
-  padding:0 16px 0 18px; font-size:18px;
+  position:absolute; left:6px; right:5px; top:187px; width:auto; height:48px; display:flex; align-items:center; justify-content:space-between;
+  padding:0 8px 0 13px; font-size:18px;
 }
+#payMeSplitRow > span,#payMeSplitRow > button { transform:translateY(-2px); }
 #payMeSplit { width:66px; height:31px; border:0; border-radius:17px; background:#6a6b70; padding:2px; cursor:pointer; }
 #payMeSplit::after { content:''; display:block; width:39px; height:27px; border-radius:14px; background:#fff; transition:transform .16s ease; box-shadow:0 1px 3px rgba(0,0,0,.25); }
 #payMeSplit.on { background:#96cf22; }
 #payMeSplit.on::after { transform:translateX(23px); }
 #payMeAmountHead {
-  position:absolute; left:0; right:0; top:284px; height:27px; display:flex; align-items:center; justify-content:space-between; color:#fff;
+  position:absolute; left:0; right:0; top:272px; height:27px; display:flex; align-items:center; justify-content:space-between; color:#fff;
 }
 #payMeAmountHead strong { font-size:20px; line-height:27px; font-weight:670; letter-spacing:-.015em; }
 #payMeAmountHead span { font-size:16px; color:#d7d7d9; font-weight:430; }
-#payMeAmountWrap { position:absolute; left:0; top:320px; width:100%; height:62px; overflow:hidden; }
+#payMeAmountWrap { position:absolute; left:6px; right:5px; top:317px; width:auto; height:57px; overflow:hidden; }
 #payMeAmount {
   position:absolute; inset:0; width:100%; height:100%; border:0; outline:0; border-radius:8px; background:#2d3035;
-  color:#fff; caret-color:#96cf22; padding:0 22px; text-align:right; font-size:32px; line-height:62px;
+  color:#fff; caret-color:#96cf22; padding:0 17px; text-align:right; font-size:32px; line-height:55px;
   font-weight:430; letter-spacing:-.02em; appearance:none;
 }
 #payMeAmount::placeholder { color:#fff; opacity:1; }
 #payMeHint {
-  position:absolute; left:22px; right:22px; top:423px; text-align:center; color:#c7c7c9; font-size:18px; line-height:26px; font-weight:400;
+  position:absolute; left:22px; right:22px; top:416px; text-align:center; color:#c7c7c9; font-size:18px; line-height:26px; font-weight:400;
 }
 #payMeQr {
-  position:absolute; left:50%; top:499px; width:219px; height:220px; transform:translateX(-50%);
+  position:absolute; left:50%; top:495px; width:219px; height:220px; transform:translateX(-50%);
   display:block; object-fit:fill; image-rendering:auto; user-select:none; -webkit-user-drag:none; background:#fff;
 }
 #payMeShare {
-  position:absolute; left:0; right:0; bottom:25px; height:55px; border:0; border-radius:29px; background:#9bd329;
+  position:absolute; left:0; right:0; bottom:25px; height:55px; border:0; border-radius:29px; background:#9bcc35;
   color:#202225; display:flex; align-items:center; justify-content:center; gap:15px; font-size:18px; font-weight:620; cursor:pointer;
 }
 .payMeShareIcon { width:22px; height:25px; display:block; }
-#payMeFocusControls { display:none; position:absolute; z-index:20; left:0; right:0; top:506px; height:58px; pointer-events:none; }
-#payMe.amount-focused #payMeFocusControls { display:block; }
-#payMeFocusNav {
-  position:absolute; left:17px; top:0; width:111px; height:54px; border-radius:28px; border:1px solid rgba(82,84,88,.72);
-  background:rgba(28,30,32,.92); display:flex; align-items:center; justify-content:space-around; pointer-events:auto;
-}
-.payMeFocusArrow { width:12px; height:12px; border-top:3px solid #f2f2f4; border-right:3px solid #f2f2f4; transform:rotate(45deg); }
-.payMeFocusArrow.prev { transform:rotate(225deg); opacity:.26; }
-#payMeDone {
-  position:absolute; right:17px; top:0; width:54px; height:54px; border:0; border-radius:50%; background:#9bd329; pointer-events:auto; cursor:pointer;
-}
-#payMeDone::before {
-  content:''; position:absolute; width:15px; height:27px; left:20px; top:10px; border-right:2px solid white; border-bottom:2px solid white; transform:rotate(38deg);
-}
+
 #payMeShortcut { position:absolute; z-index:5; left:17px; top:165px; width:82px; height:104px; border:0; background:transparent; padding:0; cursor:pointer; }
 @media (prefers-reduced-motion:reduce) { #payMeSplit::after { transition:none; } }
 </style>
@@ -574,7 +563,7 @@ body.assets-ready #loginShot { opacity:1; }
     <div id="payMeTitle">Zaplať mi</div>
   </div>
   <div id="payMeBody">
-    <input class="payMeCard" id="payMePurpose" type="text" placeholder="Za co chcete zaplatit?" autocomplete="off" spellcheck="false"/>
+    <textarea class="payMeCard" id="payMePurpose" placeholder="Za co chcete zaplatit?" autocomplete="off" spellcheck="false" rows="1"></textarea>
 
     <div class="payMeCard" id="payMeDestination">
       <div class="payMeDestinationLabel">Kam chcete<br/>peníze poslat</div>
@@ -602,10 +591,6 @@ body.assets-ready #loginShot { opacity:1; }
       </svg>
       <span>Sdílet platební údaje</span>
     </button>
-  </div>
-  <div id="payMeFocusControls" aria-hidden="true">
-    <div id="payMeFocusNav"><span class="payMeFocusArrow prev"></span><span class="payMeFocusArrow"></span></div>
-    <button id="payMeDone" type="button" aria-label="Hotovo"></button>
   </div>
 </section>
 
@@ -745,7 +730,6 @@ body.assets-ready #loginShot { opacity:1; }
   function showPayMe() {
     setActiveScreen(payMe);
     setPhaseColor('#212224');
-    payMe?.classList.remove('amount-focused');
     payMeAmount?.blur();
     payMePurpose?.blur();
   }
@@ -753,7 +737,6 @@ body.assets-ready #loginShot { opacity:1; }
   function showMainFromPayMe() {
     payMeAmount?.blur();
     payMePurpose?.blur();
-    payMe?.classList.remove('amount-focused');
     setActiveScreen(main);
     setPhaseColor('#1e2223');
     requestAnimationFrame(syncScrollThumb);
@@ -850,10 +833,6 @@ body.assets-ready #loginShot { opacity:1; }
     if (payMeQr) payMeQr.src=(raw==='600') ? PAY_ME_QR_600 : PAY_ME_QR_BASE;
   };
   payMeAmount?.addEventListener('input',syncPayMeAmount);
-  payMeAmount?.addEventListener('focus',()=>payMe?.classList.add('amount-focused'));
-  payMeAmount?.addEventListener('blur',()=>setTimeout(()=>payMe?.classList.remove('amount-focused'),60));
-  document.getElementById('payMeDone')?.addEventListener('pointerdown',e=>e.preventDefault());
-  document.getElementById('payMeDone')?.addEventListener('click',()=>payMeAmount?.blur());
 
   document.getElementById('payMeShare')?.addEventListener('click', async () => {
     const amount=(payMeAmount?.value||'').trim();

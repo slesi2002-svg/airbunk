@@ -1,3 +1,4 @@
-airbank-demo-v12-pay-me
-Added Zaplať mi screen from supplied iPhone reference.
-Exact supplied QR payment panels are embedded; 600 CZK switches to the supplied 600 CZK QR.
+airbank-demo-v13-pay-me-1to1
+- Removed artificial amount-focus previous/next and green-check overlays.
+- Rebuilt Zaplať mi geometry/typography against supplied references.
+- Fixed inherited font shorthand overriding field sizes.
