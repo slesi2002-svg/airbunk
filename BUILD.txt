@@ -1,3 +1,3 @@
-airbank-demo-v11-high-balance-fix
-2369 -> 24 350 000,00 CZK now renders in the large overview balance, Běžný účet 1 card, and Zaplatit account summary.
-9876 -> 1 400 000,00 CZK remains unchanged.
+airbank-demo-v12-pay-me
+Added Zaplať mi screen from supplied iPhone reference.
+Exact supplied QR payment panels are embedded; 600 CZK switches to the supplied 600 CZK QR.
